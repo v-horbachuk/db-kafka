@@ -1,0 +1,32 @@
+- Answers for 4-th task:
+1. Which city had the most alien witnesses? ----> Ramla 1401
+2. Which Region had the least alien witnesses? ----> Europe/Zaporozhye - 507
+3. Which time of day (day/night) had the most alien witnesses? -----> Day = 5061, night = 4939
+4. How many distinct locations were involved? ----> 165
+
+- Run docker containers for the 1st task:
+docker run --name mariadb -e MARIADB_ROOT_PASSWORD=1234 -p 3366:3306 -d mariadb
+docker run --name postgres -e POSTGRES_PASSWORD=1234 -p 5533:5432 -d postgres
+
+
+- To install MySQLdb and psycopg2 you need to install Python 3 and MySQL and psycopg2 development headers and libraries like so:
+- MySQLdb:
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
+- PSYCOPG2:
+sudo apt-get install python3-dev, libpq-dev
+- And then:
+pip3 install psycopg2
+pip3 install mysqlclient
+
+
+- Install and run Kafka:
+1. sudo apt update
+2. sudo apt install -y default-jre
+3. sudo bash -c 'echo PATH=\$PATH:/opt/kafka_2.13-2.8.0/bin/ >> /etc/bash.bashrc'
+4. source /etc/bash.bashrc (su - $USER???)
+5. wget https://archive.apache.org/dist/kafka/2.8.0/kafka_2.13-2.8.0.tgz
+6. sudo tar -xzvf kafka_2.13-2.8.0.tgz -C /opt
+7. cd /opt/kafka_2.13-2.8.0/
+8. sudo /opt/kafka_2.13-2.8.0/bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+9. cd /opt/kafka_2.13-2.8.0/
+10. sudo /opt/kafka_2.13-2.8.0/bin/kafka-server-start.sh -daemon config/server.properties
