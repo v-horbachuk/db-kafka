@@ -23,3 +23,5 @@ def create_raw_input():
     
     connection.commit()
     cursor.close()
+
+create_raw_input()

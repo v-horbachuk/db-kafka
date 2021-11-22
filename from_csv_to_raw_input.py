@@ -17,3 +17,5 @@ def write_2_csv():
     connection.commit()
     cursor.close()
     print("Done")
+
+write_2_csv()
